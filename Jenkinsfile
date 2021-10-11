@@ -37,14 +37,6 @@ pipeline {
                }
           }
           
-          stage("Deploy to staging") {
-               steps {
-                    sh "kubectl config use-context staging"
-                    sh "kubectl apply -f hazelcast.yaml"
-                    sh "kubectl apply -f calculator.yaml"
-               }
-          }
-
           stage("Acceptance test") {
                steps {
                     sleep 60
@@ -52,13 +44,6 @@ pipeline {
                }
           }
 
-          stage("Release") {
-               steps {
-                    sh "kubectl config use-context production"
-                    sh "kubectl apply -f hazelcast.yaml"
-                    sh "kubectl apply -f calculator.yaml"
-               }
-          }
           stage("Smoke test") {
               steps {
                   sleep 60
