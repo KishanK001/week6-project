@@ -14,6 +14,7 @@ pipeline {
               expression { 
                 return env.GIT_BRANCH == "origin/feature" 
               }
+           }
                steps {
                     sh "./gradlew test"
                }
@@ -23,6 +24,7 @@ pipeline {
               expression { 
                 return env.GIT_BRANCH == "origin/main" 
               }
+           }
                steps {
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
@@ -33,6 +35,7 @@ pipeline {
               expression { 
                 return env.GIT_BRANCH == "origin/feature" 
               }
+           }
                steps {
                     sh "./gradlew checkstyleMain"
                }
