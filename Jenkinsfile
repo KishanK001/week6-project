@@ -35,7 +35,6 @@ pipeline {
                steps {
                     sh "sed  -i 's/{{VERSION}}/${BUILD_ID}/g' calculator.yaml"
                }
-          }
 
           }
      }
