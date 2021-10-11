@@ -10,17 +10,32 @@ pipeline {
                }
           }
           stage("Unit test") {
+               when { 
+              expression { 
+                return env.GIT_BRANCH == "feature" 
+              }
+           }
                steps {
                     sh "./gradlew test"
                }
           }
           stage("Code coverage") {
+               when { 
+              expression { 
+                return env.GIT_BRANCH == "main" 
+              }
+           }
                steps {
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
                }
           }
           stage("Static code analysis") {
+               when { 
+              expression { 
+                return env.GIT_BRANCH == "feature" 
+              }
+           }
                steps {
                     sh "./gradlew checkstyleMain"
                }
