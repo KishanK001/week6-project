@@ -33,7 +33,7 @@ pipeline {
 
           stage("Update version") {
                steps {
-                    sh "sed  -i 's/{{VERSION}}/${BUILD_TIMESTAMP}/g' calculator.yaml"
+                    sh "sed  -i 's/{{VERSION}}/${BUILD_ID}/g' calculator.yaml"
                }
           }
           
