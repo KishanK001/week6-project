@@ -12,7 +12,7 @@ pipeline {
           stage("Unit test") {
                when { 
               expression { 
-                return env.GIT_BRANCH == "origin/feature" 
+                return env.GIT_BRANCH == "feature" 
               }
            }
                steps {
@@ -22,7 +22,7 @@ pipeline {
           stage("Code coverage") {
                when { 
               expression { 
-                return env.GIT_BRANCH == "origin/main" 
+                return env.GIT_BRANCH == "main" 
               }
            }
                steps {
@@ -33,7 +33,7 @@ pipeline {
           stage("Static code analysis") {
                when { 
               expression { 
-                return env.GIT_BRANCH == "origin/feature" 
+                return env.GIT_BRANCH == "feature" 
               }
            }
                steps {
